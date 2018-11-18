@@ -15,7 +15,7 @@ public class MainView extends VerticalLayout {
   private SolutionManager sm;
 
   public MainView() {
-    Button button = new Button("Click me",
+    Button button = new Button("Test",
             event -> Notification.show("Hello from openDXP Solutionmanager - Version: " + sm.getVersion()));
     add(button);
   }
