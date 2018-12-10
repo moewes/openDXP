@@ -3,38 +3,35 @@ package org.opendxp.solutionmanager.system;
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.DockerCmdExecFactory;
 import com.github.dockerjava.api.model.Info;
+import com.github.dockerjava.api.model.Network;
 import com.github.dockerjava.core.DockerClientBuilder;
 import com.github.dockerjava.netty.NettyDockerCmdExecFactory;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 @ApplicationScoped
 public class DockerMaschine {
 
+  private DockerClient dockerClient;
+
+  private DockerClient getDockerClient() {
+
+    if (dockerClient == null) {
+      DockerCmdExecFactory dockerCmdExecFactory = new NettyDockerCmdExecFactory();
+      dockerClient = DockerClientBuilder.getInstance().withDockerCmdExecFactory(dockerCmdExecFactory).build();
+    }
+    return dockerClient;
+  }
+
   public String getInfo() {
 
-    // using jaxrs/jersey implementation here (netty impl is also available)
-    DockerCmdExecFactory dockerCmdExecFactory = new NettyDockerCmdExecFactory();
-        /*    .withReadTimeout(1000)
-            .withConnectTimeout(1000)
-            .withMaxTotalConnections(100)
-            .withMaxPerRouteConnections(10);*/
-
-    DockerClient dockerClient = DockerClientBuilder.getInstance().withDockerCmdExecFactory(dockerCmdExecFactory).build();
-
-    Info exec = dockerClient.infoCmd().exec();
-
+    Info exec = getDockerClient().infoCmd().exec();
     return exec.getArchitecture();
+  }
 
-/*
-    try {
-      final DockerClient docker = new DefaultDockerClient("unix:///var/run/docker.sock");
-      Info info = docker.info();
+  public List<Network> getNetworks() {
 
-      return info.name();
-    } catch (DockerException | InterruptedException e) {
-      e.printStackTrace();
-    }
-    return "sorry";*/
+    return getDockerClient().listNetworksCmd().exec();
   }
 }
