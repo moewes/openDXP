@@ -15,5 +15,11 @@ jboss/server/minimal/data/**/*
 jboss/server/minimal/work/**/*
 
 # deployed package files #
+wildfly-*/**/*
 
 *.DEPLOYED
+.DS_Store
+Ohne Titel.code-workspace
+.idea/**/*
+**/target/**/*
+**/*.iml
