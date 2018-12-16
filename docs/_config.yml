@@ -2,7 +2,7 @@ theme: minima
 plugins:
   - jekyll-sitemap
   
-title: My Site
+title: openDXP
 author: Maik
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
@@ -13,4 +13,4 @@ description: > # this means to ignore newlines until "baseurl:"
 twitter_username: your-twitter-handle
 github_username:  your-github-handle
 
-show_excerpts: true # set to false to remove excerpts on the homepage
+show_excerpts: false # set to false to remove excerpts on the homepage
