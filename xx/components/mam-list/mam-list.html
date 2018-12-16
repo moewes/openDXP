@@ -1,0 +1,41 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="mam-list">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <div>
+      <h2>Liste</h2>
+      <slot></slot>
+      <p>Footer</p>
+    </div>
+    
+  </template>
+
+  <script>
+    /**
+     * `mam-list`
+     * a list
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class MamList extends Polymer.Element {
+      static get is() { return 'mam-list'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'mam-list'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(MamList.is, MamList);
+  </script>
+</dom-module>

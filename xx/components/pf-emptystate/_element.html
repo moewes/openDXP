@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="pf-emptystate">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `pf-emptystate`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class PfEmptystate extends Polymer.Element {
+      static get is() { return 'pf-emptystate'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'pf-emptystate'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(PfEmptystate.is, PfEmptystate);
+  </script>
+</dom-module>

@@ -1,0 +1,7 @@
+{
+  "name": "app2",
+  "short_name": "app2",
+  "description": "ee",
+  "start_url": "/",
+  "display": "standalone"
+}

@@ -1,0 +1,365 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="pf-emptystate">
+  <template>
+    <style>
+      .pf-c-empty-state {
+  --pf-c-empty-state--MaxWidth: #{pf-size-prem(400px)}; 
+  --pf-c-empty-state--Padding: var(--pf-global--spacer--xl);
+  --pf-c-empty-state__icon--MarginBottom: var(--pf-global--spacer--lg);
+  --pf-c-empty-state__icon--FontSize: var(--pf-global--icon--FontSize);
+  --pf-c-empty-state__icon--Color: var(--pf-global--icon--Color);
+  --pf-c-empty-state__body--MarginTop: var(--pf-global--spacer--md);
+  --pf-c-empty-state__body--Color: var(--pf-global--Color--200);
+  --pf-c-empty-state__action--MarginTop: var(--pf-global--spacer--xl);
+  --pf-c-empty-state__action--GridGap: var(--pf-global--spacer--sm);
+
+  max-width: var(--pf-c-empty-state--MaxWidth);
+  padding: var(--pf-c-empty-state--Padding);
+  text-align: center;
+}
+
+.pf-c-empty-state__icon {
+  margin-bottom: var(--pf-c-empty-state__icon--MarginBottom);
+  font-size: var(--pf-c-empty-state__icon--FontSize);
+  color: var(--pf-c-empty-state__icon--Color);
+}
+
+.pf-c-empty-state__body {
+  margin-top: var(--pf-c-empty-state__body--MarginTop);
+  color: var(--pf-c-empty-state__body--Color);
+}
+
+.pf-c-empty-state__action {
+  display: grid;
+  margin-top: var(--pf-c-empty-state__action--MarginTop);
+  justify-items: center;
+  grid-gap: var(--pf-c-empty-state__action--GridGap);
+}
+
+.pf-c-button {
+  /* Component */
+  --pf-c-button--PaddingTop: var(--pf-global--spacer--form-element);
+  --pf-c-button--PaddingRight: var(--pf-global--spacer--md);
+  --pf-c-button--PaddingBottom: var(--pf-global--spacer--form-element);
+  --pf-c-button--PaddingLeft: var(--pf-global--spacer--md);
+  --pf-c-button--LineHeight: var(--pf-global--LineHeight--md);
+  --pf-c-button--FontWeight: var(--pf-global--FontWeight--semi-bold);
+  --pf-c-button--FontSize: var(--pf-global--FontSize--md);
+  --pf-c-button--BorderRadius: var(--pf-global--BorderRadius--sm);
+  --pf-c-button--BorderColor: transparent;
+  --pf-c-button--BorderWidth: var(--pf-global--BorderWidth--sm);
+
+  /* Hover state variables */
+  --pf-c-button--hover--BorderWidth: var(--pf-global--BorderWidth--md);
+
+  /* Focus state variables */
+  --pf-c-button--focus--BorderWidth: var(--pf-global--BorderWidth--md);
+
+  /* Active state variables */
+  --pf-c-button--active--BorderWidth: var(--pf-global--BorderWidth--md);
+
+  /* Disabled state variables */
+  --pf-c-button--disabled--Color: var(--pf-global--disabled-color--100);
+  --pf-c-button--disabled--BackgroundColor: var(--pf-global--disabled-color--200);
+  --pf-c-button--disabled--BorderColor: transparent;
+
+  /* Primary btn */
+  --pf-c-button--m-primary--BackgroundColor: var(--pf-global--primary-color--100);
+  --pf-c-button--m-primary--Color: var(--pf-global--Color--light-100);
+  --pf-c-button--m-primary--hover--BackgroundColor: var(--pf-global--primary-color--200);
+  --pf-c-button--m-primary--hover--Color: var(--pf-global--Color--light-100);
+  --pf-c-button--m-primary--focus--BackgroundColor: var(--pf-global--primary-color--200);
+  --pf-c-button--m-primary--focus--Color: var(--pf-global--Color--light-100);
+  --pf-c-button--m-primary--active--BackgroundColor: var(--pf-global--primary-color--200);
+  --pf-c-button--m-primary--active--Color: var(--pf-global--Color--light-100);
+
+  /* Secondary btn */
+  --pf-c-button--m-secondary--BackgroundColor: transparent;
+  --pf-c-button--m-secondary--BorderColor: var(--pf-global--primary-color--100);
+  --pf-c-button--m-secondary--Color: var(--pf-global--primary-color--100);
+  --pf-c-button--m-secondary--hover--BackgroundColor: transparent;
+  --pf-c-button--m-secondary--hover--BorderColor: var(--pf-global--primary-color--100);
+  --pf-c-button--m-secondary--hover--Color: var(--pf-global--primary-color--100);
+  --pf-c-button--m-secondary--focus--BackgroundColor: transparent;
+  --pf-c-button--m-secondary--focus--BorderColor: var(--pf-global--primary-color--100);
+  --pf-c-button--m-secondary--focus--Color: var(--pf-global--primary-color--100);
+  --pf-c-button--m-secondary--active--BackgroundColor: transparent;
+  --pf-c-button--m-secondary--active--BorderColor: var(--pf-global--primary-color--100);
+  --pf-c-button--m-secondary--active--Color: var(--pf-global--primary-color--100);
+
+  /* Tertiary btn */
+  --pf-c-button--m-tertiary--BackgroundColor: transparent;
+  --pf-c-button--m-tertiary--BorderColor: var(--pf-global--secondary-color--100);
+  --pf-c-button--m-tertiary--Color: var(--pf-global--Color--100);
+  --pf-c-button--m-tertiary--hover--BackgroundColor: transparent;
+  --pf-c-button--m-tertiary--hover--BorderColor: var(--pf-global--secondary-color--100);
+  --pf-c-button--m-tertiary--hover--Color: var(--pf-global--Color--100);
+  --pf-c-button--m-tertiary--focus--BackgroundColor: transparent;
+  --pf-c-button--m-tertiary--focus--BorderColor: var(--pf-global--secondary-color--100);
+  --pf-c-button--m-tertiary--focus--Color: var(--pf-global--Color--100);
+  --pf-c-button--m-tertiary--active--BackgroundColor: transparent;
+  --pf-c-button--m-tertiary--active--BorderColor: var(--pf-global--secondary-color--100);
+  --pf-c-button--m-tertiary--active--Color: var(--pf-global--Color--100);
+
+  /* danger btn */
+  --pf-c-button--m-danger--BackgroundColor: var(--pf-global--danger-color--100);
+  --pf-c-button--m-danger--Color: var(--pf-global--Color--light-100);
+  --pf-c-button--m-danger--hover--BackgroundColor: var(--pf-global--danger-color--200);
+  --pf-c-button--m-danger--hover--Color: var(--pf-global--Color--light-100);
+  --pf-c-button--m-danger--focus--BackgroundColor: var(--pf-global--danger-color--200);
+  --pf-c-button--m-danger--focus--Color: var(--pf-global--Color--light-100);
+  --pf-c-button--m-danger--active--BackgroundColor: var(--pf-global--danger-color--200);
+  --pf-c-button--m-danger--active--Color: var(--pf-global--Color--light-100);
+
+  /* Link btn */
+  --pf-c-button--m-link--Color: var(--pf-global--link--Color);
+  --pf-c-button--m-link--hover--Color: var(--pf-global--link--Color--hover);
+  --pf-c-button--m-link--focus--Color: var(--pf-global--link--Color--hover);
+  --pf-c-button--m-link--active--Color: var(--pf-global--link--Color--hover);
+  --pf-c-button--m-link--disabled--BackgroundColor: transparent;
+
+  /* Plain btn */
+  --pf-c-button--m-plain--Color: var(--pf-global--Color--200);
+  --pf-c-button--m-plain--hover--Color: var(--pf-global--Color--100);
+  --pf-c-button--m-plain--focus--Color: var(--pf-global--Color--100);
+  --pf-c-button--m-plain--active--Color: var(--pf-global--Color--100);
+  --pf-c-button--m-plain--disabled--Color: var(--pf-global--disabled-color--200);
+  --pf-c-button--m-plain--disabled--BackgroundColor: transparent;
+
+  /* Styles for an icon in button */
+  --pf-c-button__icon--MarginRight: var(--pf-global--spacer--xs);
+
+  position: relative;
+  display: inline-block;
+  padding: var(--pf-c-button--PaddingTop) var(--pf-c-button--PaddingRight) var(--pf-c-button--PaddingBottom) var(--pf-c-button--PaddingLeft);
+  font-size: var(--pf-c-button--FontSize);
+  font-weight: var(--pf-c-button--FontWeight);
+  line-height: var(--pf-c-button--LineHeight);
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  border: 0;
+  border-radius: var(--pf-c-button--BorderRadius);
+}
+
+  
+
+  
+
+
+
+
+
+      :host {
+        display: block;
+
+       
+        
+    --pf-c-empty-state--MaxWidth: 25rem;
+    --pf-c-empty-state--Padding: var(--pf-global--spacer--xl);
+    --pf-c-empty-state__icon--MarginBottom: var(--pf-global--spacer--lg);
+    --pf-c-empty-state__icon--FontSize: var(--pf-global--icon--FontSize);
+    --pf-c-empty-state__icon--Color: var(--pf-global--icon--Color);
+    --pf-c-empty-state__body--MarginTop: var(--pf-global--spacer--md);
+    --pf-c-empty-state__body--Color: var(--pf-global--Color--200);
+    --pf-c-empty-state__action--MarginTop: var(--pf-global--spacer--xl);
+    --pf-c-empty-state__action--GridGap: var(--pf-global--spacer--sm);
+    max-width: var(--pf-c-empty-state--MaxWidth);
+    padding: var(--pf-c-empty-state--Padding);
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: var(--pf-global--FontFamily--sans-serif);
+    font-size: var(--pf-global--FontSize--md);
+    font-weight: var(--pf-global--FontWeight--normal);
+    line-height: var(--pf-global--LineHeight--md);
+    color: var(--pf-global--Color--100);
+    background-color: transparent;
+    text-rendering: optimizeLegibility;
+
+    --pf-global--BackgroundColor--100: #fff;
+    --pf-global--BackgroundColor--200: #fafafa;
+    --pf-global--BackgroundColor--300: #ededed;
+    --pf-global--BackgroundColor--light-100: #fff;
+    --pf-global--BackgroundColor--light-200: #fafafa;
+    --pf-global--BackgroundColor--light-300: #ededed;
+    --pf-global--BackgroundColor--dark-100: #282d33;
+    --pf-global--BackgroundColor--dark-200: #393f44;
+    --pf-global--BackgroundColor--dark-transparent-100: rgba(3,3,3,.62);
+    --pf-global--BackgroundColor--dark-transparent-200: rgba(3,3,3,.32);
+    --pf-global--Color--100: #282d33;
+    --pf-global--Color--200: #72767b;
+    --pf-global--Color--300: #393f44;
+    --pf-global--Color--light-100: #fff;
+    --pf-global--Color--light-200: #ededed;
+    --pf-global--Color--dark-100: #282d33;
+    --pf-global--Color--dark-200: #72767b;
+    --pf-global--active-color--100: #007bba;
+    --pf-global--active-color--200: #bee1f4;
+    --pf-global--active-color--300: #39a5dc;
+    --pf-global--disabled-color--100: #72767b;
+    --pf-global--disabled-color--200: #d1d1d1;
+    --pf-global--primary-color--100: #007bba;
+    --pf-global--primary-color--200: #00659c;
+    --pf-global--primary-color--light-100: #39a5dc;
+    --pf-global--primary-color--dark-100: #007bba;
+    --pf-global--secondary-color--100: #72767b;
+    --pf-global--success-color--100: #92d400;
+    --pf-global--success-color--200: #486b00;
+    --pf-global--info-color--100: #39a5dc;
+    --pf-global--info-color--200: #004368;
+    --pf-global--warning-color--100: #f0ab00;
+    --pf-global--warning-color--200: #795600;
+    --pf-global--danger-color--100: #c00;
+    --pf-global--danger-color--200: #a30000;
+    --pf-global--danger-color--300: #470000;
+    --pf-global--BoxShadow--sm: 0 0.0625rem 0.125rem 0 rgba(3,3,3,.2);
+    --pf-global--BoxShadow--sm-right: 0.25rem 0 0.625rem -0.25rem rgba(3,3,3,.12);
+    --pf-global--BoxShadow--sm-left: -0.25rem 0 0.625rem -0.25rem rgba(3,3,3,.12);
+    --pf-global--BoxShadow--sm-bottom: 0 0.25rem 0.625rem -0.25rem rgba(3,3,3,.12);
+    --pf-global--BoxShadow--sm-top: 0 -0.25rem 0.625rem -0.25rem rgba(3,3,3,.12);
+    --pf-global--BoxShadow--md: 0 0.0625rem 0.0625rem 0rem rgba(3,3,3,.05),0 0.25rem 0.5rem 0.25rem rgba(3,3,3,.06);
+    --pf-global--BoxShadow--md-right: 0.3125rem 0 0.625rem -0.25rem rgba(3,3,3,.25);
+    --pf-global--BoxShadow--md-left: -0.3125rem 0 0.625rem -0.25rem rgba(3,3,3,.25);
+    --pf-global--BoxShadow--md-bottom: 0 0.3125rem 0.625rem -0.25rem rgba(3,3,3,.25);
+    --pf-global--BoxShadow--md-top: 0 -0.3125rem 0.625rem -0.25rem rgba(3,3,3,.25);
+    --pf-global--BoxShadow--lg: 0 0.1875rem 0.4375rem 0.1875rem rgba(3,3,3,.13),0 0.6875rem 1.5rem 1rem rgba(3,3,3,.12);
+    --pf-global--BoxShadow--lg-right: 0.75rem 0 0.625rem -0.25rem rgba(3,3,3,.07);
+    --pf-global--BoxShadow--lg-left: -0.75rem 0 0.625rem -0.25rem rgba(3,3,3,.07);
+    --pf-global--BoxShadow--lg-bottom: 0 0.75rem 0.625rem -0.25rem rgba(3,3,3,.07);
+    --pf-global--BoxShadow--lg-top: 0 -0.75rem 0.625rem -0.25rem rgba(3,3,3,.07);
+    --pf-global--BoxShadow--inset: inset 0 0 0.625rem 0 rgba(3,3,3,.25);
+    /*--pf-global--font-path: ./assets/fonts;*/
+    --pf-global--spacer--xs: 0.25rem;
+    --pf-global--spacer--sm: 0.5rem;
+    --pf-global--spacer--md: 1rem;
+    --pf-global--spacer--lg: 1.5rem;
+    --pf-global--spacer--xl: 2rem;
+    --pf-global--spacer--2xl: 3rem;
+    --pf-global--spacer--3xl: 4rem;
+    --pf-global--spacer--form-element: 0.375rem;
+    --pf-global--gutter: 1.5rem;
+    --pf-global--golden-ratio: 1.681;
+    --pf-global--ZIndex--xs: 100;
+    --pf-global--ZIndex--sm: 200;
+    --pf-global--ZIndex--md: 300;
+    --pf-global--ZIndex--lg: 400;
+    --pf-global--ZIndex--xl: 500;
+    --pf-global--ZIndex--2xl: 600;
+    --pf-global--breakpoint--xs: 0;
+    --pf-global--breakpoint--sm: 576px;
+    --pf-global--breakpoint--md: 768px;
+    --pf-global--breakpoint--lg: 992px;
+    --pf-global--breakpoint--xl: 1200px;
+    --pf-global--link--FontWeight: 500;
+    --pf-global--link--Color: #007bba;
+    --pf-global--link--TextDecoration: none;
+    --pf-global--link--Color--hover: #00486e;
+    --pf-global--link--Color--light-hover: #1e7baa;
+    --pf-global--link--TextDecoration--hover: underline;
+    --pf-global--BorderWidth--sm: 1px;
+    --pf-global--BorderWidth--md: 2px;
+    --pf-global--BorderWidth--lg: 3px;
+    --pf-global--BorderColor: #72767b;
+    --pf-global--BorderColor--dark: #72767b;
+    --pf-global--BorderColor--light: #bbb;
+    --pf-global--BorderColor--light-200: #ededed;
+    --pf-global--BorderRadius--sm: 3px;
+    --pf-global--BorderRadius--lg: 30em;
+    --pf-global--icon--Color: #bbb;
+    --pf-global--icon--FontSize: 3.375rem;
+    --pf-global--FontFamily--sans-serif: “Overpass”,Overpass,“open sans”,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    --pf-global--FontFamily--monospace: “Overpass-mono”,Overpass-mono,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+    --pf-global--FontSize--4xl: 2.25rem;
+    --pf-global--FontSize--3xl: 1.75rem;
+    --pf-global--FontSize--2xl: 1.5rem;
+    --pf-global--FontSize--xl: 1.3125rem;
+    --pf-global--FontSize--lg: 1.125rem;
+    --pf-global--FontSize--md: 1rem;
+    --pf-global--FontSize--sm: 0.875rem;
+    --pf-global--FontSize--xs: 0.75rem;
+    --pf-global--FontWeight--light: 300;
+    --pf-global--FontWeight--normal: 400;
+    --pf-global--FontWeight--semi-bold: 500;
+    --pf-global--FontWeight--bold: 600;
+    --pf-global--LineHeight--sm: 1.3;
+    --pf-global--LineHeight--md: 1.5;
+    --pf-global-ListStyle: disc outside;
+    --pf-global--Transition: all 250ms cubic-bezier(0.42,0,0.58,1);
+    --pf-global--TimingFunction: cubic-bezier(0.645,0.045,0.355,1);
+    --pf-global--TransitionDuration: 250ms;
+    --pf-global--arrow--width: 0.9375rem;
+    --pf-global--arrow--width-lg: 1.5625rem;
+    --pf-global--target-size--MinWidth: 44px;
+    --pf-global--target-size--MinHeight: 44px;
+
+    --pf-c-empty-state--MaxWidth: 25rem;
+    --pf-c-empty-state--Padding: var(--pf-global--spacer--xl);
+    --pf-c-empty-state__icon--MarginBottom: var(--pf-global--spacer--lg);
+    --pf-c-empty-state__icon--FontSize: var(--pf-global--icon--FontSize);
+    --pf-c-empty-state__icon--Color: var(--pf-global--icon--Color);
+    --pf-c-empty-state__body--MarginTop: var(--pf-global--spacer--md);
+    --pf-c-empty-state__body--Color: var(--pf-global--Color--200);
+    --pf-c-empty-state__action--MarginTop: var(--pf-global--spacer--xl);
+    --pf-c-empty-state__action--GridGap: var(--pf-global--spacer--sm);
+    max-width: var(--pf-c-empty-state--MaxWidth);
+    padding: var(--pf-c-empty-state--Padding);
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: var(--pf-global--FontFamily--sans-serif);
+    font-size: var(--pf-global--FontSize--md);
+    font-weight: var(--pf-global--FontWeight--normal);
+    line-height: var(--pf-global--LineHeight--md);
+    color: var(--pf-global--Color--100);
+    background-color: transparent;
+    text-rendering: optimizeLegibility;
+
+      }
+    </style>
+    <div class="pf-c-empty-state">
+      <i class="fas fa-cubes pf-c-empty-state__icon" aria-hidden="true"></i>
+      <h1 class="pf-c-title pf-m-lg">
+        Empty State
+      </h1>
+      <p class="pf-c-empty-state__body">
+        This represents an the empty state pattern in Patternfly 4. Hopefully it's simple enough to use but flexible enough to meet a variety of needs.
+      </p>
+      <div class="pf-c-empty-state__action">
+        <button class="pf-c-button pf-m-primary">
+          Buy more ideas
+        </button>
+        <button class="pf-c-button pf-m-link">
+          Buy something else
+        </button>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `pf-emptystate`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class PfEmptystate extends Polymer.Element {
+      static get is() { return 'pf-emptystate'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'pf-emptystate'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(PfEmptystate.is, PfEmptystate);
+  </script>
+</dom-module>
