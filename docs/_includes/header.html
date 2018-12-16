@@ -1,30 +1,158 @@
 <header class="site-header">
 
-  <nav class="navbar navbar-pf-vertical">
+  {%- assign default_paths = site.pages | map: "path" -%}
+  {%- assign page_paths = site.header_pages | default: default_paths -%}
+  {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
+
+  <nav class="navbar navbar-default navbar-pf" role="navigation">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">
-        <img class="navbar-brand-icon" src="/assets/img/logo-alt.svg" alt="" /><img class="navbar-brand-name" src="/assets/img/brand-alt.svg"
-          alt="{{ site.title | escape }}" />
+      <a class="navbar-brand" href="/">
+        <img src="/assets/img/brand.svg" alt="PatternFly Enterprise Application openDXP" />
       </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-utility">
 
+        <li class="applauncher-pf  dropdown">
+          <button class="btn btn-link dropdown-toggle nav-item-iconic" data-toggle="dropdown" href="#">
+            <span class="fa fa-th applauncher-pf-icon" aria-hidden="true"></span>
+            <span class="dropdown-title">
+              <span class="applauncher-pf-title">
+                Application Launcher
+                <span class="caret" aria-hidden="true"></span>
+              </span>
+            </span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li class="applauncher-pf-item" role="presentation">
+              <a class="applauncher-pf-link" href="#" role="menuitem">
+
+                <i class="applauncher-pf-link-icon pficon pficon-storage-domain" aria-hidden="true"></i>
+
+                <span class="applauncher-pf-link-title">Recteque</span>
+              </a>
+            </li>
+            <li class="applauncher-pf-item" role="presentation">
+              <a class="applauncher-pf-link" href="#" role="menuitem">
+
+                <i class="applauncher-pf-link-icon pficon pficon-virtual-machine" aria-hidden="true"></i>
+
+                <span class="applauncher-pf-link-title">Ipsum</span>
+              </a>
+            </li>
+            <li class="applauncher-pf-item" role="presentation">
+              <a class="applauncher-pf-link" href="#" role="menuitem">
+
+                <!-- Placeholder left to maintain spacing -->
+                <i class="applauncher-pf-link-icon" aria-hidden="true"></i>
+
+                <span class="applauncher-pf-link-title">Suavitate</span>
+              </a>
+            </li>
+            <li class="applauncher-pf-item" role="presentation">
+              <a class="applauncher-pf-link" href="#" role="menuitem">
+
+                <i class="applauncher-pf-link-icon pficon pficon-domain" aria-hidden="true"></i>
+
+                <span class="applauncher-pf-link-title">Lorem</span>
+              </a>
+            </li>
+            <li class="applauncher-pf-item" role="presentation">
+              <a class="applauncher-pf-link" href="#" role="menuitem">
+
+                <i class="applauncher-pf-link-icon pficon pficon-home" aria-hidden="true"></i>
+
+                <span class="applauncher-pf-link-title">Home</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="dropdown">
+          <button class="btn btn-link nav-item-iconic" id="horizontalDropdownMenu13" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">
+            <span title="Help" class="fa pficon-help dropdown-title"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="horizontalDropdownMenu13">
+            <li><a href="#0">Help</a></li>
+            <li><a href="#0">About</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+            <span class="pficon pficon-user"></span>
+            <span class="dropdown-title">
+              Brian Johnson <b class="caret"></b>
+            </span>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#0">Link</a>
+            </li>
+            <li>
+              <a href="#0">Another link</a>
+            </li>
+            <li>
+              <a href="#0">Something else here</a>
+            </li>
+            <li class="divider"></li>
+            <li class="dropdown-submenu">
+              <a tabindex="-1" href="#0">More options</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#0">Link</a>
+                </li>
+                <li>
+                  <a href="#0">Another link</a>
+                </li>
+                <li>
+                  <a href="#0">Something else here</a>
+                </li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li>
+                  <a href="#0">Separated link</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#0">One more separated link</a>
+                </li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#0">One more separated link</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-primary">
+        {%- for path in page_paths -%}
+        {%- assign my_page = site.pages | where: "path", path | first -%}
+        {%- if my_page.title -%}
+        <li>
+          <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+        </li>
+        {%- endif -%}
+        {%- endfor -%}
+      </ul>
     </div>
   </nav>
 
   <div class="wrapper">
-    {%- assign default_paths = site.pages | map: "path" -%}
-    {%- assign page_paths = site.header_pages | default: default_paths -%}
-    {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
+
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
     {%- if titles_size > 0 -%}
     <nav class="site-nav">
-      
+
       <label for="nav-trigger">
         <span class="menu-icon">
           <svg viewBox="0 0 18 15" width="18px" height="15px">
