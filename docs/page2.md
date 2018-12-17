@@ -8,4 +8,4 @@ layout: page
 
 lorem ipsum lorem ipsum
 
-[[about]]
+[about](about)
