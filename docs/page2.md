@@ -1,7 +1,7 @@
 ---
 title: "My Page 2"
 nav-menu: true
-layout: page
+layout: post
 ---
 
 # Page 2
