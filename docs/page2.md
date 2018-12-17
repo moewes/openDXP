@@ -1,5 +1,6 @@
 ---
 title: "My Page 2"
+nav-menu: true
 ---
 
 # Page 2
