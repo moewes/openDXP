@@ -1,8 +1,8 @@
 # site settings
 title: openDXP
-subtitle: open digital experiaece plattform
+subtitle: open digital experiece plattform
 email: youremailaddress@gmail.com
-description: a new open digital experiaece plattform
+description: a new open digital experiece plattform
 baseurl: "/openDXP" # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author:
