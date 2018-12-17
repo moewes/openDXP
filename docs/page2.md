@@ -6,3 +6,5 @@ nav-menu: true
 # Page 2
 
 lorem ipsum lorem ipsum
+
+[about]
