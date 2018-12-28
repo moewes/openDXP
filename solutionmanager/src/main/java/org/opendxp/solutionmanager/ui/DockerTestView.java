@@ -1,7 +1,6 @@
-package org.opendxp.solutionmanager.vaadin;
+package org.opendxp.solutionmanager.ui;
 
 import com.github.dockerjava.api.model.Network;
-import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.button.Button;
@@ -12,14 +11,12 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.ParentLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 import org.opendxp.solutionmanager.system.DockerMaschine;
 import org.opendxp.solutionmanager.system.SolutionManager;
 
 import javax.inject.Inject;
-import java.util.List;
 
 @Route(value = "Docker", layout = TestLayout.class)
 @PageTitle("Docker Test")
