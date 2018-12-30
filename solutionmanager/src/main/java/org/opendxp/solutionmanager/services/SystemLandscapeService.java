@@ -11,6 +11,8 @@ import java.io.*;
 @Singleton
 public class SystemLandscapeService {
 
+  private static final String FILENAME = "landscape.yml";
+
   private SystemLandscape systemLandscape;
 
   @Lock(LockType.READ)
@@ -18,7 +20,7 @@ public class SystemLandscapeService {
 
     if (systemLandscape == null) {
       
-      File file = new File("./newfile.txt");
+      File file = new File(FILENAME);
       
       if (file.exists()) {
         
@@ -47,7 +49,7 @@ public class SystemLandscapeService {
 
 
     Yaml yaml = new Yaml();
-    File file = new File("./newfile.txt");
+    File file = new File(FILENAME);
     try (FileOutputStream fop = new FileOutputStream(file)) {
 
       String s = yaml.dumpAsMap(systemLandscape);

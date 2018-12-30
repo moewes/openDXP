@@ -24,7 +24,9 @@ public class LandscapeLayout extends AbstractAppRouterLayout {
     appLayoutMenu.addMenuItems(
             new AppLayoutMenuItem(VaadinIcon.HOME.create(), "", ""),
             new AppLayoutMenuItem(VaadinIcon.CLUSTER.create(),
-                    "System Landscape", "systemlandscape/landing"));
+                    "System Landscape", "systemlandscape/landing"),
+            new AppLayoutMenuItem(null,"Environments", "systemlandscape/environments"),
+            new AppLayoutMenuItem(null, "Feature Set", "systemlandscape/featuresets"));
 
     appLayout.setMenu(appLayoutMenu);
   }

@@ -1,4 +1,4 @@
-package org.opendxp.solutionmanager.ui;
+package org.opendxp.solutionmanager.ui.uitest;
 
 import com.github.dockerjava.api.model.Network;
 import com.vaadin.flow.component.HasComponents;
@@ -15,6 +15,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 import org.opendxp.solutionmanager.system.DockerMaschine;
 import org.opendxp.solutionmanager.system.SolutionManager;
+import org.opendxp.solutionmanager.ui.MainView;
 
 import javax.inject.Inject;
 

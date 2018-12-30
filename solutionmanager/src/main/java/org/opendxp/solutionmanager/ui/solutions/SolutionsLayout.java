@@ -1,4 +1,4 @@
-package org.opendxp.solutionmanager.ui;
+package org.opendxp.solutionmanager.ui.solutions;
 
 import com.vaadin.flow.component.applayout.AbstractAppRouterLayout;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -8,8 +8,8 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.RoutePrefix;
 
-@RoutePrefix("test")
-public class TestLayout extends AbstractAppRouterLayout {
+@RoutePrefix("solutions")
+public class SolutionsLayout extends AbstractAppRouterLayout {
 
   @Override
   protected void configure(AppLayout appLayout, AppLayoutMenu appLayoutMenu) {
@@ -23,7 +23,7 @@ public class TestLayout extends AbstractAppRouterLayout {
 
     appLayoutMenu.addMenuItems(
             new AppLayoutMenuItem(VaadinIcon.HOME.create(), "", ""),
-            new AppLayoutMenuItem(VaadinIcon.SERVER.create(), "Docker", "test/Docker"));
+            new AppLayoutMenuItem(VaadinIcon.OPEN_BOOK.create(), "Solutions", "solutions/start "));
 
     appLayout.setMenu(appLayoutMenu);
   }
