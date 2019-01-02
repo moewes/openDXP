@@ -23,7 +23,8 @@ public class SolutionsLayout extends AbstractAppRouterLayout {
 
     appLayoutMenu.addMenuItems(
             new AppLayoutMenuItem(VaadinIcon.HOME.create(), "", ""),
-            new AppLayoutMenuItem(VaadinIcon.OPEN_BOOK.create(), "Solutions", "solutions/start "));
+            new AppLayoutMenuItem(VaadinIcon.OPEN_BOOK.create(), "Solutions", "solutions/landing"),
+            new AppLayoutMenuItem(VaadinIcon.CLOUD_UPLOAD.create(), "Import", "solutions/import"));
 
     appLayout.setMenu(appLayoutMenu);
   }

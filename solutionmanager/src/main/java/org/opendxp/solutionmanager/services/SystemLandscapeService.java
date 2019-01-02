@@ -21,13 +21,12 @@ public class SystemLandscapeService {
     if (systemLandscape == null) {
       
       File file = new File(FILENAME);
-      
       if (file.exists()) {
         
         try {
           FileInputStream fip = new FileInputStream(file);
           Yaml yaml = new Yaml();
-          systemLandscape = yaml.load(fip);
+          systemLandscape = yaml.loadAs(fip, SystemLandscape.class);
         } catch (FileNotFoundException e) {
           e.printStackTrace();
         }
