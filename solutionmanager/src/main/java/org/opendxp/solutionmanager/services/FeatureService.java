@@ -1,10 +1,11 @@
 package org.opendxp.solutionmanager.services;
 
-import com.helger.commons.annotation.Singleton;
+
 import org.yaml.snakeyaml.Yaml;
 
 import javax.ejb.Lock;
 import javax.ejb.LockType;
+import javax.ejb.Singleton;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,9 +16,9 @@ import java.util.List;
 public class FeatureService {
 
   class Features {
-    private List<Feature> features = new ArrayList<>();;
+    private List<Feature> features = new ArrayList<>();
 
-    public List<Feature> getFeatures() {
+    List<Feature> getFeatures() {
       return features;
     }
 
@@ -44,10 +45,8 @@ public class FeatureService {
   }
 
   @Lock(LockType.WRITE)
-  public Feature importFeature(String importedYaml) {
+  public Feature importFeature(Feature feature) {
 
-    Yaml yaml = new Yaml();
-    Feature feature = yaml.loadAs(importedYaml, Feature.class);
     features.getFeatures().add(feature);
 
     return feature;

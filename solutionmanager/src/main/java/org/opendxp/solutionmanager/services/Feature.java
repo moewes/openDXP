@@ -4,7 +4,9 @@ public class Feature {
 
   private String name;
   private String description;
-  private String vedor;
+  private String vendor;
+  private String type;
+  private int version;
 
   public String getName() {
     return name;
@@ -22,11 +24,27 @@ public class Feature {
     this.description = description;
   }
 
-  public String getVedor() {
-    return vedor;
+  public String getType() {
+    return type;
   }
 
-  public void setVedor(String vedor) {
-    this.vedor = vedor;
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public int getVersion() {
+    return version;
+  }
+
+  public void setVersion(int version) {
+    this.version = version;
+  }
+
+  public String getVendor() {
+    return vendor;
+  }
+
+  public void setVendor(String vendor) {
+    this.vendor = vendor;
   }
 }
